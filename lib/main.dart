@@ -158,72 +158,45 @@ class _MyHomePageState extends State<MyHomePage>
       ),
       bottomNavigationBar: Container(
         color: Colors.pink,
-        child: BottomAppBar(
-          color: Colors.white,
-          // notchMargin: 10,
+        child: Container(
+          child: BottomAppBar(
+            color: Colors.white,
+            // notchMargin: 10,
 
-          shape: CircularNotchedRectangle(),
-          child: Container(
-            height: kBottomNavigationBarHeight,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                IconButton(
-                  icon: Icon(Icons.home),
-                  onPressed: () {
-                    _onTabSelected(0);
-                  },
-                ),
-                IconButton(
-                  icon: Icon(Icons.search),
-                  onPressed: () {
-                    _onTabSelected(1);
-                  },
-                ),
-                IconButton(
-                  icon: Icon(Icons.favorite),
-                  onPressed: () {
-                    _onTabSelected(2);
-                  },
-                ),
-                IconButton(
-                  icon: Icon(Icons.person),
-                  onPressed: () {
-                    _onTabSelected(3);
-                  },
-                ),
-              ],
+            shape: _isExpanded ? CircularNotchedRectangle() : null,
+            child: Container(
+              height: kBottomNavigationBarHeight,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  IconButton(
+                    icon: Icon(Icons.home),
+                    onPressed: () {
+                      _onTabSelected(0);
+                    },
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.search),
+                    onPressed: () {
+                      _onTabSelected(1);
+                    },
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.favorite),
+                    onPressed: () {
+                      _onTabSelected(2);
+                    },
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.person),
+                    onPressed: () {
+                      _onTabSelected(3);
+                    },
+                  ),
+                ],
+              ),
             ),
           ),
-          //  BottomAppBar(
-          //   shape: CircularNotchedRectangle(),
-          //   child: BottomNavigationBar(
-          //     currentIndex: _currentIndex,
-          //     onTap: _onTabSelected,
-          //     selectedItemColor: Colors.green,
-          //     unselectedItemColor: Colors.black,
-          //     unselectedLabelStyle: TextStyle(color: Colors.black),
-          //     items: [
-          //       BottomNavigationBarItem(
-          //         icon: Icon(Icons.home),
-          //         label: 'Home',
-          //       ),
-          //       BottomNavigationBarItem(
-          //         icon: Icon(Icons.search),
-          //         label: 'Search',
-          //       ),
-          //       BottomNavigationBarItem(
-          //         icon: Icon(Icons.favorite),
-          //         label: 'Favorites',
-          //       ),
-          //       BottomNavigationBarItem(
-          //         icon: Icon(Icons.person),
-          //         label: 'Profile',
-          //       ),
-          //     ],
-          //   ),
-          // ),
-          // bottomNavigationBar:
         ),
       ),
       floatingActionButton: GestureDetector(
@@ -232,12 +205,14 @@ class _MyHomePageState extends State<MyHomePage>
           animation: _animationController,
           builder: (BuildContext context, Widget? child) {
             return Container(
-              padding: EdgeInsets.all(2),
+              margin: EdgeInsets.only(top: 20),
+              // padding: EdgeInsets.all(2),
               decoration: BoxDecoration(
                 color: Colors.pink,
-                borderRadius: BorderRadius.circular(16.0),
+                borderRadius: BorderRadius.circular(12.0),
               ),
               child: FloatingActionButton(
+                splashColor: Colors.transparent,
                 elevation: 0,
                 backgroundColor: Colors.transparent,
                 onPressed: _toggleExpansion,
